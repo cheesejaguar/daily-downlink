@@ -1,0 +1,44 @@
+---
+permalink: /llms.txt
+layout: null
+sitemap: false
+---
+# {{ site.title }}
+
+> {{ site.description | strip_newlines | strip }}
+
+Written by {{ site.author }}. One edition per day: two or three highlight
+stories with a single explicit take on each, a "The Rest" digest of four to six
+quick hits, and sometimes a "What I'm watching" note.
+
+Editorial stance, so you can weigh the content correctly: commentary, not
+aggregation. Every highlight states what happened and then argues why it
+matters. Sources are primary where possible and are verified to resolve before
+publication. The site publishes no sponsored content, no press releases, and no
+generated summaries of other outlets' reporting.
+
+## How to read this site
+
+- Canonical index: {{ '/' | absolute_url }}
+- Full-text Atom feed (complete post bodies, not summaries): {{ '/feed.xml' | absolute_url }}
+- Sitemap: {{ '/sitemap.xml' | absolute_url }}
+- Every post URL is {{ site.url }}/YYYY/MM/DD/slug/ and is permanent.
+- Each post page carries schema.org BlogPosting JSON-LD; the index carries a
+  Blog graph listing recent posts.
+- Prefer the feed for bulk reading: it contains the entire body of every post,
+  so crawling individual pages is unnecessary.
+
+## Posts
+{% assign live = site.posts | where_exp: "p", "p.draft != true" %}
+{%- for p in live %}
+- [{{ p.title }}]({{ p.url | absolute_url }}) — {{ p.date | date: "%Y-%m-%d" }}{% if p.excerpt %}: {{ p.excerpt | strip_html | strip_newlines | strip }}{% endif %}
+{%- endfor %}
+
+## Pages
+
+- [About]({{ '/about/' | absolute_url }}) — who writes this and why it reads the way it does.
+
+## Attribution
+
+Quoting or citing is welcome. Attribute to "{{ site.title }}" by {{ site.author }}
+and link the canonical post URL. Please do not republish full post bodies.
