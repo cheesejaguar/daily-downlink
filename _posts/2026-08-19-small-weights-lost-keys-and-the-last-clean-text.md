@@ -25,17 +25,19 @@ a laptop-class machine. Simon Willison calls it astonishing while noting it
 "defaults to wildly overthinking things."
 
 **Why it matters.** At roughly a sixtieth of the parameter count, the headline
-number is the least interesting part. Small open weights change the deciding
-variables for a workday problem from capability to per-query cost, latency, and
-self-hosting. And that "wildly overthinking" default is the production tax that
-score tables never show: a 27B that reasons too long on every prompt eats back
-the latency and throughput budget you saved on the weights. Once the model is
-this cheap, the question flips from "can it do the job" to "can it do the job
-inside my latency and cost envelope, and can I stop it thinking when that's all
-it's doing." Score parity at this size is a routing decision — throw the easy
-queries at the 27B and keep the flagship for the long tail, provided the
-overthinking doesn't eat the savings. That's the operator's read, and it's the
-whole story.
+number is the least interesting part — the benchmark prior from [the first
+edition](https://blog.aaronx.co/2026/08/19/welcome-to-the-daily-downlink/) still
+holds: read the number, then ask which k it was measured at and which oracle the
+test quietly assumes. Small open weights change the deciding variables for a
+workday problem from capability to per-query cost, latency, and self-hosting.
+And that "wildly overthinking" default is the production tax that score tables
+never show: a 27B that reasons too long on every prompt eats back the latency
+and throughput budget you saved on the weights. Once the model is this cheap,
+the question flips from "can it do the job" to "can it do the job inside my
+latency and cost envelope, and can I stop it thinking when that's all it's
+doing." Score parity at this size is a routing decision — throw the easy queries
+at the 27B and keep the flagship for the long tail, provided the overthinking
+doesn't eat the savings. That's the operator's read, and it's the whole story.
 
 _Source: [simonwillison.net](https://simonwillison.net/2026/Aug/17/qwen-38-27b-scores-52/)_
 
@@ -102,5 +104,8 @@ Whether the recall-bottleneck framing changes eval practice — specifically, if
 benchmarks start scoring "encoded but not recallable" separately the way
 WikiProfile does, and whether inference-time retrieval plus a thinking budget
 becomes the default answer to long-tail facts instead of more scale. That would
-be a cheap win for everyone running retrieval over a model that already knows the
-answer.
+be a cheap win for everyone running retrieval over a model that already knows
+the answer — and the kind of decay-measurement the [first
+edition](https://blog.aaronx.co/2026/08/19/welcome-to-the-daily-downlink/) noted
+in its preview: a benchmark is only as useful as the half-life of the question
+it asks.
