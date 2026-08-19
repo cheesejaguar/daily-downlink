@@ -1,0 +1,59 @@
+# The Daily Down -- built by GitHub Pages' native Jekyll. No Actions, no build step.
+# Keep this file minimal. Every key here is load-bearing; see CLAUDE.md before editing.
+
+title: The Daily Down
+description: >-
+  A systems engineer's daily read on AI. Two or three stories that matter,
+  one clear take on each.
+author: Aaron Cohen
+url: "https://blog.aaronx.co"
+baseurl: ""
+
+# _posts/YYYY-MM-DD-slug.md  ->  https://blog.aaronx.co/YYYY/MM/DD/slug/
+# The filename IS the URL. That is the whole validation scheme.
+permalink: /:year/:month/:day/:title/
+
+# Dates are interpreted in this zone. Combined with `future: true` below, a post
+# dated "today" can never silently vanish because the builder ran in UTC.
+timezone: America/Los_Angeles
+future: true
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+# Posts contain em dashes and curly quotes. Without this, a builder running under
+# a POSIX locale reads files as US-ASCII and the build dies on the first one.
+encoding: utf-8
+
+# No theme. Every layout lives in _layouts/. GitHub Pages otherwise defaults to
+# minima, which would compile its own SCSS into the site and fight this design.
+theme:
+
+# Pages-whitelisted plugins only. Adding anything else here breaks the build.
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+defaults:
+  # Social preview card for every page, overridable per post with `image:`.
+  - scope:
+      path: ""
+    values:
+      image: /assets/og.png
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      draft: false
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - CLAUDE.md
+  - README.md
+  - .jekyll-cache
+  - .claude
