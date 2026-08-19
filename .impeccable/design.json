@@ -10,17 +10,24 @@
       "dim": "#6f9a81",
       "rest": "#9ccfb0",
       "bright": "#d6f5e2",
-      "role": "The only depth axis. Dim recedes, rest is body, bright advances."
+      "role": "The only depth axis. Dim recedes, rest is body and internal links, bright is headings, hot is internal-link excitation.",
+      "hot": "#eafff2"
     },
     "amber": {
       "rest": "#e0a95c",
       "bright": "#f6cd93",
-      "role": "Semantic: points somewhere else. Links, sources, date stamps, the mark. Never emphasis."
+      "role": "Semantic: leaves the record. Scoped to a[href^=\"http\"], source attributions, date stamps, the mark. Never emphasis, never an internal link."
     },
-    "ground": { "base": "#080c0a", "rule": "#1b2723" }
+    "ground": {
+      "base": "#080c0a",
+      "rule": "#1b2723"
+    }
   },
   "contrastMeasured": {
-    "body": 11.21, "title": 16.88, "link": 9.37, "dimmest": 6.2,
+    "body": 11.21,
+    "title": 16.88,
+    "link": 9.37,
+    "dimmest": 6.2,
     "floor": 4.5,
     "note": "phos-dim at 6.2:1 is the darkest text value permitted in this system."
   },
@@ -35,18 +42,20 @@
     "decay": "620ms",
     "easing": "cubic-bezier(0.16, 1, 0.3, 1)",
     "rule": "Fast excitation, slow decay. The only animation in the system; a second one is a violation.",
-    "reducedMotion": "fully disabled"
+    "reducedMotion": "fully disabled",
+    "appliedTo": "Internal link colour (phos -> phos-hot), outbound link colour (amber -> amber-bright), and log row hover (background lift plus title and date excitation)."
   },
   "breakpoints": {
     "collapse": "46rem",
-    "behaviour": "Grid collapses to one column; stamp goes inline above its title; body drops to 1rem and padding to 1.15rem to recover characters per line."
+    "behaviour": "Grid collapses to one column; stamp goes inline above its title; body drops to 0.9375rem and padding to 0.9rem, giving 39.8ch. Narrow-viewport rules are declared LAST in the stylesheet because they override base rules of equal specificity."
   },
   "grid": {
     "rail": "8.5rem",
     "gutter": "2rem",
     "measure": "42rem",
     "measuredCh": 68.2,
-    "rule": "Column 1 is the stamp rail (dates, categories, status only). Column 2 is the record (all prose). The log spans 1 / -1."
+    "rule": "Column 1 is the stamp rail (dates, categories, status only). Column 2 is the record (all prose). The log spans 1 / -1.",
+    "measuredChMobile": 39.8
   },
   "typeface": {
     "family": "Sometype Mono",
@@ -62,7 +71,8 @@
     "Hairlines appear in exactly three places: under the status bar, between log entries, above the record footer.",
     "More space above a heading than below it (3.5rem / 1.25rem).",
     "Stamps are baseline-matched to the heading they label.",
-    "Icons: authored SVG, 24px grid, stroke-width 2, round caps/joins, currentColor."
+    "Icons: authored SVG, 24px grid, stroke-width 2, round caps/joins, currentColor.",
+    "Internal links are phos with an underline, exciting to phos-hot. Outbound links are amber. Never give an internal link phos-bright \u2014 that is the heading value and the collision removes the only colour channel separating them."
   ],
   "componentSnippets": {
     "field-label": {
@@ -75,13 +85,23 @@
       "css": "display:block;font-style:normal;font-size:.8125rem;color:var(--phos-dim);margin-top:-.75rem"
     },
     "link-persistence": {
-      "selector": "a",
-      "css": "color:var(--amber);transition:color 620ms cubic-bezier(.16,1,.3,1)",
-      "hover": "color:var(--amber-bright);transition-duration:40ms"
+      "selector": "a (internal) / a[href^=\"http\"] (outbound)",
+      "css": "a{color:var(--phos);transition:color 620ms cubic-bezier(.16,1,.3,1)} a[href^=\"http\"]{color:var(--amber)}",
+      "hover": "a:hover{color:var(--phos-hot);transition-duration:40ms} a[href^=\"http\"]:hover{color:var(--amber-bright)}"
     }
   },
   "notCanonized": [
     "The field-label rule is recorded but flagged content-coupled: it depends on the post format guaranteeing **Label.** as a paragraph's first child, so it is a shared convention with CLAUDE.md rather than a free-standing style."
   ],
-  "detector": { "findings": 0, "run": "scripts/detect.mjs --json over all changed targets" }
+  "detector": {
+    "findings": 0,
+    "run": "scripts/detect.mjs --json over all changed targets"
+  },
+  "seed": {
+    "key": "fd37f511",
+    "scope": "direction",
+    "mode": "read",
+    "assignedIndex": 7,
+    "note": "Roll ran and reproduces; overridden by a user-pinned phosphor terminal, which the playbook permits."
+  }
 }

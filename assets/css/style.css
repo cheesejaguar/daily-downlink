@@ -40,6 +40,7 @@
   --amber-bright:#f6cd93;
   --phos-hot:    #eafff2;  /* beam hit harder: internal link excitation */
   --rule:        #1b2723;
+  --ground-lit:  #121e19;  /* the only non-ground surface: log row under the cursor */
 
   --mono: "Sometype Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
@@ -103,7 +104,7 @@ main { flex: 1 0 auto; }
 /* Green stays inside the record; amber leaves it. Internal links are the
    record lit brighter, outbound references are the second phosphor. */
 a {
-  color: var(--phos-bright);
+  color: var(--phos);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
   transition: color var(--decay) var(--ease);
@@ -262,7 +263,7 @@ a[href^="http"]:focus-visible { color: var(--amber-bright); }
   padding-block: 1.1rem;
 }
 
-.log > li:hover { background-color: #0d1512; transition-duration: var(--strike); }
+.log > li:hover { background-color: var(--ground-lit); transition-duration: var(--strike); }
 .log > li:hover .log-title { color: var(--phos-hot); transition-duration: var(--strike); }
 .log > li:hover .log-date { color: var(--phos); transition-duration: var(--strike); }
 
@@ -430,6 +431,7 @@ a[href^="http"]:focus-visible { color: var(--amber-bright); }
 .site-foot p { margin: 0; }
 .site-foot .right { margin-left: auto; display: flex; gap: 1.25rem; }
 .site-foot a { color: var(--phos-dim); text-decoration: none; }
+.site-foot a[href^="http"] { color: var(--amber); }
 .site-foot a:hover { color: var(--phos-hot); }
 .site-foot a[href^="http"]:hover { color: var(--amber-bright); }
 
