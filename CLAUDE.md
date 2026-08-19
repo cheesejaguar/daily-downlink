@@ -233,12 +233,17 @@ _config.yml               site config — do not touch
 CLAUDE.md                 this file
 PRODUCT.md                durable product context — internal, never published
 Gemfile                   local preview only; Pages ignores it
-index.html                home: newest column + archive
+index.html                home: latest pass + the log of earlier ones
 about.md                  about page
 404.html                  not-found page
+llms.txt                  machine-readable site guide; regenerates itself from
+                          _posts, so you never edit it when publishing
 _layouts/                 default, post, page
-_includes/                head, header, footer
-assets/css/style.css      all styling, vanilla CSS
+_includes/                head, header, footer, structured-data
+assets/css/style.css      the whole design, vanilla CSS, no build step
+assets/fonts/             self-hosted Sometype Mono (OFL) — leave in place;
+                          deleting it silently drops the site to a fallback face
 assets/favicon.svg
+assets/og.png             social card (og.svg is its source)
 _posts/                   >>> the only directory you add files to <<<
 ```

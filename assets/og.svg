@@ -1,12 +1,15 @@
+<!-- Source for assets/og.png (1200x630). Rendered by inlining
+     assets/fonts/sometype-mono-latin.woff2 as a base64 @font-face, then
+     cropping the centre band. Authored at 1200x1200 so the renderer does not
+     rescale the artwork. -->
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
-  <rect width="1200" height="1200" fill="#fdfcfa"/>
-  <rect x="0" y="285" width="1200" height="9" fill="#25327a"/>
-  <g fill="none" stroke="#25327a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(96,380) scale(2.7)">
-    <path d="M12 3 V13.4"/>
-    <path d="M7.6 9.6 L12 14.3 L16.4 9.6"/>
-    <path d="M5.5 19.5 H18.5"/>
+  <rect width="1200" height="1200" fill="#080c0a"/>
+  <rect x="0" y="285" width="1200" height="2" fill="#1b2723"/>
+  <g fill="none" stroke="#e0a95c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(96,372) scale(2.4)">
+    <path d="M12 3 V13.4"/><path d="M7.6 9.6 L12 14.3 L16.4 9.6"/><path d="M5.5 19.5 H18.5"/>
   </g>
-  <text x="96" y="600" font-family="Georgia" font-size="86" font-weight="bold" fill="#16181d">The Daily Downlink</text>
-  <text x="96" y="668" font-family="Georgia" font-size="34" fill="#565a62">A systems engineer&#8217;s daily read on AI.</text>
-  <text x="96" y="845" font-family="Helvetica" font-size="25" fill="#25327a">blog.aaronx.co &#183; Aaron Cohen</text>
+  <text x="96" y="592" font-family="Sometype Mono" font-size="66" font-weight="700" fill="#d6f5e2">The Daily Downlink</text>
+  <text x="96" y="656" font-family="Sometype Mono" font-size="27" fill="#9ccfb0">A systems engineer&#8217;s daily read on AI.</text>
+  <text x="96" y="850" font-family="Sometype Mono" font-size="22" fill="#6f9a81">blog.aaronx.co</text>
+  <text x="330" y="850" font-family="Sometype Mono" font-size="22" fill="#e0a95c">Aaron Cohen</text>
 </svg>

@@ -2,43 +2,43 @@
 layout: default
 ---
 {%- assign live = site.posts | where_exp: "p", "p.draft != true" -%}
-
+<div class="grid">
 {%- if live.size > 0 -%}
   {%- assign lead = live.first -%}
 
-  <article class="lead">
-    <p class="dateline">
-      <time datetime="{{ lead.date | date_to_xmlschema }}">{{ lead.date | date: "%B %-d, %Y" }}</time>
-    </p>
-    <h1 class="lead-title">
-      <a href="{{ lead.url | relative_url }}">{{ lead.title }}</a>
-    </h1>
-    {%- if lead.excerpt -%}
-    <p class="lead-excerpt">{{ lead.excerpt | strip_html | strip_newlines | truncate: 260 }}</p>
-    {%- endif -%}
-    <p><a class="more" href="{{ lead.url | relative_url }}">Read today's column</a></p>
+  <p class="stamp rail">
+    <b><time datetime="{{ lead.date | date_to_xmlschema }}">{{ lead.date | date: "%Y-%m-%d" }}</time></b>
+    Latest pass
+  </p>
+
+  <article class="entry">
+    <h1 class="entry-title"><a href="{{ lead.url | relative_url }}">{{ lead.title }}</a></h1>
+    {%- if lead.excerpt %}
+    <p class="entry-lede">{{ lead.excerpt | strip_html | strip_newlines | strip | truncate: 260 }}</p>
+    {%- endif %}
+    <p class="readon"><a href="{{ lead.url | relative_url }}">Read this pass</a></p>
   </article>
 
   {%- if live.size > 1 %}
-  <section class="archive" aria-labelledby="archive-h">
-    <h2 class="archive-h" id="archive-h">Previously</h2>
-    <ol class="archive-list">
-      {%- for p in live offset: 1 %}
-      <li class="archive-item">
-        <time class="archive-date" datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%b %-d, %Y" }}</time>
-        <a class="archive-link" href="{{ p.url | relative_url }}">{{ p.title }}</a>
-        {%- if p.excerpt %}
-        <span class="archive-sum">{{ p.excerpt | strip_html | strip_newlines | truncate: 150 }}</span>
-        {%- endif %}
-      </li>
-      {%- endfor %}
-    </ol>
-  </section>
+  <h2 class="log-head">Earlier passes</h2>
+  <ol class="log">
+    {%- for p in live offset: 1 %}
+    <li>
+      <time class="log-date" datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%Y-%m-%d" }}</time>
+      <a class="log-title" href="{{ p.url | relative_url }}">{{ p.title }}</a>
+      {%- if p.excerpt %}
+      <span class="log-sum">{{ p.excerpt | strip_html | strip_newlines | strip | truncate: 150 }}</span>
+      {%- endif %}
+    </li>
+    {%- endfor %}
+  </ol>
   {%- endif -%}
 
 {%- else -%}
-  <section class="empty">
-    <h1 class="lead-title">Nothing published yet</h1>
-    <p class="lead-excerpt">The first column goes up shortly. Subscribe to the <a href="{{ '/feed.xml' | relative_url }}">feed</a> and it'll find you.</p>
+  <p class="stamp rail"><b>No signal</b></p>
+  <section class="entry empty">
+    <h1 class="entry-title">Nothing has come down yet</h1>
+    <p class="entry-lede">The first pass goes up shortly. Subscribe to the <a href="{{ '/feed.xml' | relative_url }}">feed</a> and it will find you.</p>
   </section>
 {%- endif -%}
+</div>

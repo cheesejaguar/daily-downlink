@@ -1,0 +1,87 @@
+{
+  "$schema": "impeccable/design-sidecar/1",
+  "northStar": "The receiving station log",
+  "world": "Phosphor console. A single plane, lit by an electron beam. Alignment does the work boxes would do elsewhere, and brightness is the only depth axis.",
+  "antiReference": "The previous build of this site: indigo accent, system serif, centred single column, a hairline rule under every section. Client called it vibe-coded.",
+  "colorStrategy": "committed",
+  "colorScheme": "dark-only (no light palette exists; color-scheme: dark is declared)",
+  "ramps": {
+    "phosphor": {
+      "dim": "#6f9a81",
+      "rest": "#9ccfb0",
+      "bright": "#d6f5e2",
+      "role": "The only depth axis. Dim recedes, rest is body, bright advances."
+    },
+    "amber": {
+      "rest": "#e0a95c",
+      "bright": "#f6cd93",
+      "role": "Semantic: points somewhere else. Links, sources, date stamps, the mark. Never emphasis."
+    },
+    "ground": { "base": "#080c0a", "rule": "#1b2723" }
+  },
+  "contrastMeasured": {
+    "body": 11.21, "title": 16.88, "link": 9.37, "dimmest": 6.2,
+    "floor": 4.5,
+    "note": "phos-dim at 6.2:1 is the darkest text value permitted in this system."
+  },
+  "elevation": {
+    "philosophy": "none",
+    "shadows": [],
+    "rule": "No shadows, blur, layering, or z-index above the skip link. Depth is brightness only."
+  },
+  "motion": {
+    "signature": "phosphor persistence",
+    "strike": "40ms",
+    "decay": "620ms",
+    "easing": "cubic-bezier(0.16, 1, 0.3, 1)",
+    "rule": "Fast excitation, slow decay. The only animation in the system; a second one is a violation.",
+    "reducedMotion": "fully disabled"
+  },
+  "breakpoints": {
+    "collapse": "46rem",
+    "behaviour": "Grid collapses to one column; stamp goes inline above its title; body drops to 1rem and padding to 1.15rem to recover characters per line."
+  },
+  "grid": {
+    "rail": "8.5rem",
+    "gutter": "2rem",
+    "measure": "42rem",
+    "measuredCh": 68.2,
+    "rule": "Column 1 is the stamp rail (dates, categories, status only). Column 2 is the record (all prose). The log spans 1 / -1."
+  },
+  "typeface": {
+    "family": "Sometype Mono",
+    "license": "SIL OFL 1.1",
+    "selfHosted": "assets/fonts/ (variable 400-700, latin subset, roman + italic, ~34KB)",
+    "why": "A monospace drawn for reading rather than for code. The console world requires mono; a coding face would have made the long-form unreadable.",
+    "note": "Mono here is world-native, not a technical costume: rail alignment, tabular stamps and log columns depend on a fixed advance width."
+  },
+  "rules": [
+    "No cards, panels, boxes, shadows, gradients, or border radii in the interface.",
+    "One typeface. Never fall back to a system stack.",
+    "Amber is semantic (points elsewhere); green is the record. Never swap them.",
+    "Hairlines appear in exactly three places: under the status bar, between log entries, above the record footer.",
+    "More space above a heading than below it (3.5rem / 1.25rem).",
+    "Stamps are baseline-matched to the heading they label.",
+    "Icons: authored SVG, 24px grid, stroke-width 2, round caps/joins, currentColor."
+  ],
+  "componentSnippets": {
+    "field-label": {
+      "selector": ".body p > strong:first-child",
+      "css": "display:block;font-size:.75rem;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--phos-dim);margin-bottom:.35rem",
+      "note": "Content-coupled. Renders the post format's **What happened.** / **Why it matters.** convention as record fields without editing markdown. Paired with the authoring contract in CLAUDE.md."
+    },
+    "source-line": {
+      "selector": ".body p > em:only-child",
+      "css": "display:block;font-style:normal;font-size:.8125rem;color:var(--phos-dim);margin-top:-.75rem"
+    },
+    "link-persistence": {
+      "selector": "a",
+      "css": "color:var(--amber);transition:color 620ms cubic-bezier(.16,1,.3,1)",
+      "hover": "color:var(--amber-bright);transition-duration:40ms"
+    }
+  },
+  "notCanonized": [
+    "The field-label rule is recorded but flagged content-coupled: it depends on the post format guaranteeing **Label.** as a paragraph's first child, so it is a shared convention with CLAUDE.md rather than a free-standing style."
+  ],
+  "detector": { "findings": 0, "run": "scripts/detect.mjs --json over all changed targets" }
+}

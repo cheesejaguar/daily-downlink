@@ -1,19 +1,19 @@
 ---
 layout: default
 ---
-<article class="post">
-  <header class="post-head">
-    <p class="dateline">
-      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
-    </p>
-    <h1 class="post-title">{{ page.title }}</h1>
-  </header>
+<article class="grid" itemscope itemtype="https://schema.org/BlogPosting">
+  <p class="stamp rail">
+    <b><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%Y-%m-%d" }}</time></b>
+    {%- if page.categories.size > 0 %}<span itemprop="articleSection">{{ page.categories | join: ", " }}</span>{%- endif %}
+  </p>
 
-  <div class="post-body">
+  <h1 class="record-title" itemprop="headline">{{ page.title }}</h1>
+
+  <div class="body" itemprop="articleBody">
     {{ content }}
   </div>
 
-  <footer class="post-foot">
-    <p><a class="back" href="{{ '/' | relative_url }}">All columns</a></p>
+  <footer class="record-foot">
+    <p><a href="{{ '/' | relative_url }}">All passes</a></p>
   </footer>
 </article>

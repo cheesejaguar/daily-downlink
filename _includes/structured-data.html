@@ -1,0 +1,27 @@
+{%- if page.url == "/" -%}
+{%- assign live = site.posts | where_exp: "p", "p.draft != true" -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": "{{ '/' | absolute_url }}#blog",
+  "name": {{ site.title | jsonify }},
+  "description": {{ site.description | strip_newlines | strip | jsonify }},
+  "url": "{{ '/' | absolute_url }}",
+  "inLanguage": "en",
+  "author": { "@type": "Person", "name": {{ site.author | jsonify }}, "url": "https://aaronx.co" },
+  "publisher": { "@type": "Person", "name": {{ site.author | jsonify }} },
+  "blogPost": [
+    {%- for p in live limit: 25 %}
+    {
+      "@type": "BlogPosting",
+      "headline": {{ p.title | jsonify }},
+      "url": "{{ p.url | absolute_url }}",
+      "datePublished": "{{ p.date | date_to_xmlschema }}"{% if p.excerpt %},
+      "description": {{ p.excerpt | strip_html | strip_newlines | strip | jsonify }}{% endif %}
+    }{% unless forloop.last %},{% endunless %}
+    {%- endfor %}
+  ]
+}
+</script>
+{%- endif -%}
