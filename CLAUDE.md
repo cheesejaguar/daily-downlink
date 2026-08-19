@@ -66,7 +66,7 @@ draft: false
 | Key | Required | Notes |
 |---|---|---|
 | `title` | yes | Always double-quoted. A colon in an unquoted title breaks the YAML. |
-| `date` | yes | `YYYY-MM-DD`, must match the filename's date. |
+| `date` | yes | `YYYY-MM-DD HH:MM:SS -0700`. The date must match the filename's date. **Always include the time.** |
 | `excerpt` | yes | One sentence, quoted. Shown on the home page; don't skip it. |
 | `categories` | no | `[commentary]` is the default. |
 | `draft` | yes | Always `false` when publishing. See the note below before using `true`. |
@@ -80,6 +80,12 @@ still built at its real URL and still appears in `sitemap.xml`, so anyone with
 the link (or a search crawler) can reach it. If you need a post to genuinely not
 exist, either don't commit the file, or use Jekyll's native `published: false`,
 which stops the page being generated at all.
+
+**Always include a time in `date:`.** Jekyll orders posts by date, and when two
+posts share an identical date it breaks the tie by filename, not by publication
+order — so a second post on the same day can silently appear *below* the older
+one on the home page. A time makes the order deterministic. The permalink only
+uses year/month/day, so adding a time never changes a URL.
 
 Note: `future: true` is set in `_config.yml`, so a post dated today will never
 be silently dropped for timezone reasons. Do not rely on this to post-date

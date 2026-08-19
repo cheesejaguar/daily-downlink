@@ -1,6 +1,6 @@
 ---
 title: "Small weights, lost keys, and the last clean text"
-date: 2026-08-19
+date: 2026-08-19 09:00:00 -0700
 excerpt: "A 27B open-weights model ties the big flagships on a composite index, Google shows frontier models recall less than they encode, and the race for clean training text has gone physical — with saws."
 categories: [commentary]
 draft: false
