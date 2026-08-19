@@ -1,6 +1,6 @@
 ---
 title: "Welcome to The Daily Downlink"
-date: 2026-08-19
+date: 2026-08-19 06:00:00 -0700
 excerpt: "What this column is, how it reads a story, and why a benchmark number is the start of the question rather than the end of it."
 categories: [commentary]
 draft: false
