@@ -6,7 +6,7 @@
     <path d="M7.6 9.6 L12 14.3 L16.4 9.6"/>
     <path d="M5.5 19.5 H18.5"/>
   </g>
-  <text x="96" y="600" font-family="Georgia" font-size="86" font-weight="bold" fill="#16181d">The Daily Down</text>
+  <text x="96" y="600" font-family="Georgia" font-size="86" font-weight="bold" fill="#16181d">The Daily Downlink</text>
   <text x="96" y="668" font-family="Georgia" font-size="34" fill="#565a62">A systems engineer&#8217;s daily read on AI.</text>
   <text x="96" y="845" font-family="Helvetica" font-size="25" fill="#25327a">blog.aaronx.co &#183; Aaron Cohen</text>
 </svg>

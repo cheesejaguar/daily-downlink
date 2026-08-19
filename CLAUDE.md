@@ -1,4 +1,4 @@
-# The Daily Down — publishing contract
+# The Daily Downlink — publishing contract
 
 You are publishing to a live blog. Read this file before you touch anything.
 
@@ -37,8 +37,8 @@ _posts/YYYY-MM-DD-slug.md
 `permalink: /:year/:month/:day/:title/`, so:
 
 ```
-_posts/2026-08-19-welcome-to-the-daily-down.md
-  ->  https://blog.aaronx.co/2026/08/19/welcome-to-the-daily-down/
+_posts/2026-08-19-welcome-to-the-daily-downlink.md
+  ->  https://blog.aaronx.co/2026/08/19/welcome-to-the-daily-downlink/
 ```
 
 That mapping is the whole URL validation scheme. Get the filename right and the
@@ -89,7 +89,7 @@ things; use the real date.
 
 ## Post structure
 
-Copy [`_posts/2026-08-19-welcome-to-the-daily-down.md`](_posts/2026-08-19-welcome-to-the-daily-down.md)
+Copy [`_posts/2026-08-19-welcome-to-the-daily-downlink.md`](_posts/2026-08-19-welcome-to-the-daily-downlink.md)
 and replace its contents. That file is the canonical example — when this
 document and that file disagree, the file wins.
 
