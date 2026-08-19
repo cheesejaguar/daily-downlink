@@ -32,7 +32,14 @@ layout: default
     </li>
     {%- endfor %}
   </ol>
-  {%- endif -%}
+  {%- endif %}
+
+  {%- assign first = live.last %}
+  <p class="record-status">
+    {{ live.size }} pass{% if live.size != 1 %}es{% endif %} on record
+    &middot; first <time datetime="{{ first.date | date_to_xmlschema }}">{{ first.date | date: "%Y-%m-%d" }}</time>
+    {%- if live.size == 1 %} &middot; the log begins here{% endif %}
+  </p>
 
 {%- else -%}
   <p class="stamp rail"><b>No signal</b></p>

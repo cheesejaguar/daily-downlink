@@ -118,11 +118,20 @@ _Source: [domain.com](https://full-url-here)_
 
 - The `**What happened.**` and `**Why it matters.**` labels are literal. Keep
   the bold and the trailing period; the stylesheet targets them.
+- **Never open any other paragraph with bold text.** The stylesheet turns the
+  first `**bold**` of *any* paragraph into a small uppercase dim field label, so
+  a paragraph starting with a bold product or company name will silently render
+  as a label instead of prose. Put the bold later in the sentence, or drop it.
+  (Bold inside a `The Rest` list item is fine — the rule only applies to
+  paragraphs.)
 - The source line is *italic*, on its own line, and is the **only** thing in its
   paragraph — the CSS styles `p > em:only-child` as the quiet attribution line.
   Link text is the bare domain.
 - **Why it matters** must contain an actual argument. If it restates What
   happened in different words, the highlight has failed and belongs in The Rest.
+- Links colour themselves by destination: anything starting `http` renders amber
+  (an outbound reference), anything site-relative renders green. Always link
+  sources with the full `https://` URL so they read as outbound.
 
 ### 3. The Rest
 

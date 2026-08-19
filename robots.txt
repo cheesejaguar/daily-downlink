@@ -1,0 +1,12 @@
+---
+permalink: /robots.txt
+layout: null
+sitemap: false
+---
+User-agent: *
+Allow: /
+
+# Machine-readable guide to this site, including how to bulk-read it:
+# {{ '/llms.txt' | absolute_url }}
+
+Sitemap: {{ '/sitemap.xml' | absolute_url }}
