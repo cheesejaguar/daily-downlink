@@ -49,11 +49,16 @@ defaults:
       layout: post
       draft: false
 
+# Repo-internal files. Anything not listed here that sits at the root gets
+# published to the live site, including plain .md files.
 exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
   - CLAUDE.md
+  - PRODUCT.md
+  - DESIGN.md
   - README.md
   - .jekyll-cache
   - .claude
+  - .impeccable

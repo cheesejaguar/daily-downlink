@@ -231,6 +231,7 @@ A clean local build means a clean deploy.
 CNAME                     custom domain — do not touch
 _config.yml               site config — do not touch
 CLAUDE.md                 this file
+PRODUCT.md                durable product context — internal, never published
 Gemfile                   local preview only; Pages ignores it
 index.html                home: newest column + archive
 about.md                  about page
