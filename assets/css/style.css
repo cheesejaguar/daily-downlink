@@ -38,6 +38,7 @@
   --phos-dim:    #6f9a81;  /* stamps, field labels */
   --amber:       #e0a95c;  /* links, sources */
   --amber-bright:#f6cd93;
+  --phos-hot:    #eafff2;  /* beam hit harder: internal link excitation */
   --rule:        #1b2723;
 
   --mono: "Sometype Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -95,25 +96,26 @@ main { flex: 1 0 auto; }
 @media (max-width: 46rem) {
   .grid { grid-template-columns: minmax(0, 1fr); }
   .grid > *, .grid > .rail { grid-column: 1; }
-
-  /* Mono eats horizontal space; buy back characters per line. */
-  :root { --pad: 1.15rem; }
-  body { font-size: 1rem; }
-  .entry-lede, .body > p:first-of-type { font-size: 1rem; }
 }
 
 /* ---------- links: phosphor persistence ---------- */
 
+/* Green stays inside the record; amber leaves it. Internal links are the
+   record lit brighter, outbound references are the second phosphor. */
 a {
-  color: var(--amber);
+  color: var(--phos-bright);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
   transition: color var(--decay) var(--ease);
 }
 a:hover, a:focus-visible {
-  color: var(--amber-bright);
+  color: var(--phos-hot);
   transition-duration: var(--strike);
 }
+
+a[href^="http"] { color: var(--amber); }
+a[href^="http"]:hover,
+a[href^="http"]:focus-visible { color: var(--amber-bright); }
 
 :focus-visible {
   outline: 2px solid var(--amber);
@@ -181,7 +183,7 @@ a:hover, a:focus-visible {
 }
 .statusbar nav a:hover,
 .statusbar nav a:focus-visible {
-  color: var(--amber-bright);
+  color: var(--phos-hot);
   text-decoration: underline;
   transition-duration: var(--strike);
 }
@@ -244,13 +246,15 @@ a:hover, a:focus-visible {
   color: var(--phos-dim);
 }
 
-/* The log spans both columns so each entry keeps its stamp in the rail. */
-.grid > .log-head,
+/* The log spans both columns so each entry keeps its stamp in the rail; its
+   heading labels the titles, so it sits over the record column. */
 .grid > .log { grid-column: 1 / -1; }
+.grid > .log-head { grid-column: 2; }
 
 .log { list-style: none; margin: 0; padding: 0; }
 
 .log > li {
+  transition: background-color var(--decay) var(--ease);
   display: grid;
   grid-template-columns: var(--rail) minmax(0, var(--measure));
   column-gap: var(--gutter);
@@ -258,7 +262,12 @@ a:hover, a:focus-visible {
   padding-block: 1.1rem;
 }
 
+.log > li:hover { background-color: #0d1512; transition-duration: var(--strike); }
+.log > li:hover .log-title { color: var(--phos-hot); transition-duration: var(--strike); }
+.log > li:hover .log-date { color: var(--phos); transition-duration: var(--strike); }
+
 .log-date {
+  transition: color var(--decay) var(--ease);
   grid-column: 1;
   font-size: 0.75rem;
   color: var(--phos-dim);
@@ -274,7 +283,7 @@ a:hover, a:focus-visible {
   text-decoration: none;
   transition: color var(--decay) var(--ease);
 }
-.log-title:hover { color: var(--amber-bright); transition-duration: var(--strike); }
+.log-title:hover { color: var(--phos-hot); transition-duration: var(--strike); }
 
 .log-sum {
   grid-column: 2;
@@ -287,6 +296,17 @@ a:hover, a:focus-visible {
   .log > li { grid-template-columns: minmax(0, 1fr); }
   .log-date, .log-title, .log-sum { grid-column: 1; padding-top: 0; }
   .log-date { margin-bottom: 0.3rem; }
+}
+
+/* Measurement material: the log is a record, so it states its own size. */
+.record-status {
+  grid-column: 1 / -1;
+  margin: 1.75rem 0 0;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.75rem;
+  color: var(--phos-dim);
+  font-variant-numeric: tabular-nums;
 }
 
 /* ---------- record (post + page body) ---------- */
@@ -410,7 +430,19 @@ a:hover, a:focus-visible {
 .site-foot p { margin: 0; }
 .site-foot .right { margin-left: auto; display: flex; gap: 1.25rem; }
 .site-foot a { color: var(--phos-dim); text-decoration: none; }
-.site-foot a:hover { color: var(--amber); }
+.site-foot a:hover { color: var(--phos-hot); }
+.site-foot a[href^="http"]:hover { color: var(--amber-bright); }
+
+/* ---------- narrow viewports ----------
+   Declared last on purpose: these override base rules of equal specificity,
+   and an earlier media block loses that cascade silently. */
+
+@media (max-width: 46rem) {
+  :root { --pad: 0.9rem; }
+  body { font-size: 0.9375rem; }
+  .entry-lede,
+  .body > p:first-of-type { font-size: 0.9375rem; }
+}
 
 /* ---------- motion / print ---------- */
 
