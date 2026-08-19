@@ -1,0 +1,359 @@
+/* The Daily Down -- vanilla CSS, no build step, no framework.
+   One column, one measure, hairline rules. Set like a notebook, not a landing page. */
+
+/* ---------- tokens ---------- */
+
+:root {
+  --paper:     #fdfcfa;
+  --ink:       #16181d;
+  --ink-soft:  #565a62;
+  --rule:      #e5e1d9;
+  --accent:    #25327a;
+  --marker:    #8b93bd;
+
+  --serif: "Iowan Old Style", "Charter", "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+  --sans:  -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+  --measure: 45.5rem;
+  --pad: 1.5rem;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:    #111318;
+    --ink:      #e9e7e2;
+    --ink-soft: #a6aab3;
+    --rule:     #272a32;
+    --accent:   #a9b5f6;
+    --marker:   #6f79a8;
+  }
+}
+
+/* ---------- base ---------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  font-synthesis-weight: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 { text-wrap: balance; }
+p, li { text-wrap: pretty; }
+
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 0.16em; }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection { background: var(--accent); color: var(--paper); }
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 0.6rem 1rem;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  z-index: 10;
+}
+.skip:focus { left: 0; }
+
+/* ---------- shared column ---------- */
+
+.bar,
+main {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+
+/* ---------- header ---------- */
+
+.site-head {
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 3.5rem;
+}
+
+.site-head .bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.35rem;
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--ink);
+  text-decoration: none;
+  font-family: var(--sans);
+  font-size: 1.02rem;
+  font-weight: 640;
+  letter-spacing: -0.012em;
+}
+
+.wordmark .mark {
+  color: var(--accent);
+  flex: none;
+  transition: transform 420ms var(--ease);
+}
+
+/* the one authored moment: the arrow settles onto its bar */
+.wordmark:hover .mark,
+.wordmark:focus-visible .mark { transform: translateY(3px); }
+
+.site-nav {
+  font-family: var(--sans);
+  font-size: 0.94rem;
+}
+.site-nav a { color: var(--ink-soft); text-decoration: none; }
+.site-nav a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 0.2em; }
+
+/* ---------- dateline ---------- */
+
+.dateline {
+  margin: 0 0 0.75rem;
+  font-family: var(--sans);
+  font-size: 0.83rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-soft);
+}
+
+/* ---------- home: lead ---------- */
+
+.lead { margin-bottom: 4.5rem; }
+
+.lead-title {
+  margin: 0 0 1.1rem;
+  font-size: clamp(2rem, 6vw, 2.7rem);
+  line-height: 1.1;
+  letter-spacing: -0.023em;
+  font-weight: 600;
+}
+.lead-title a { color: inherit; text-decoration: none; }
+.lead-title a:hover { color: var(--accent); }
+
+.lead-excerpt {
+  margin: 0 0 1.4rem;
+  font-size: 1.28rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.more {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 550;
+}
+
+/* ---------- home: archive ---------- */
+
+.archive-h {
+  margin: 0 0 0.35rem;
+  font-family: var(--sans);
+  font-size: 0.83rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.archive-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.archive-item {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 0.15rem 1.25rem;
+  padding-block: 1.25rem;
+  border-top: 1px solid var(--rule);
+}
+
+.archive-date {
+  grid-column: 1;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-soft);
+  padding-top: 0.32rem;
+}
+
+.archive-link {
+  grid-column: 2;
+  font-size: 1.18rem;
+  line-height: 1.35;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+}
+.archive-link:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 0.16em; }
+
+.archive-sum {
+  grid-column: 2;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 32rem) {
+  .archive-item { grid-template-columns: 1fr; gap: 0.3rem; }
+  .archive-date, .archive-link, .archive-sum { grid-column: 1; padding-top: 0; }
+}
+
+/* ---------- post ---------- */
+
+.post-head { margin-bottom: 2.25rem; }
+
+.post-title {
+  margin: 0;
+  font-size: clamp(1.95rem, 5.6vw, 2.55rem);
+  line-height: 1.12;
+  letter-spacing: -0.022em;
+  font-weight: 600;
+}
+
+.post-body > p:first-of-type {
+  font-size: 1.26rem;
+  line-height: 1.56;
+  color: var(--ink-soft);
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.post-body h2 {
+  margin: 3.25rem 0 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-size: 1.45rem;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+}
+
+.post-body h3 {
+  margin: 2.25rem 0 0.6rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.post-body p { margin: 0 0 1.35rem; }
+
+/* "**What happened.**" / "**Why it matters.**" lead-ins */
+.post-body p > strong:first-child { font-weight: 700; }
+
+/* "_Source: [domain](url)_" -- the quiet attribution line */
+.post-body p > em:only-child {
+  display: block;
+  font-style: normal;
+  font-family: var(--sans);
+  font-size: 0.87rem;
+  color: var(--ink-soft);
+  margin-top: -0.5rem;
+}
+
+.post-body ul, .post-body ol { margin: 0 0 1.35rem; padding-left: 1.25rem; }
+.post-body li { margin-bottom: 0.7rem; }
+.post-body li::marker { color: var(--marker); }
+
+.post-body blockquote {
+  margin: 1.75rem 0;
+  padding-left: 1.25rem;
+  border-left: 1px solid var(--rule);
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.post-body code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.88em;
+  background: color-mix(in srgb, var(--ink) 7%, transparent);
+  padding: 0.12em 0.35em;
+  border-radius: 3px;
+}
+.post-body pre {
+  overflow-x: auto;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.post-body pre code { background: none; padding: 0; }
+
+.post-body img { max-width: 100%; height: auto; }
+
+.post-body hr { border: 0; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
+
+.post-foot {
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--sans);
+  font-size: 0.95rem;
+}
+.post-foot p { margin: 0; }
+
+/* ---------- empty state ---------- */
+
+.empty { margin-bottom: 4rem; }
+
+/* ---------- footer ---------- */
+
+.site-foot {
+  margin-top: 6rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--sans);
+  font-size: 0.87rem;
+  color: var(--ink-soft);
+}
+
+.site-foot .bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding-block: 1.75rem;
+}
+.site-foot p { margin: 0; }
+.site-foot a { color: var(--ink-soft); }
+.site-foot a:hover { color: var(--accent); }
+.site-foot .dot { margin-inline: 0.4rem; }
+
+/* ---------- motion / print ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  .site-head, .site-foot, .post-foot, .skip { display: none; }
+  body { font-size: 11pt; color: #000; background: #fff; }
+  a { color: #000; }
+  .post-body a::after { content: " (" attr(href) ")"; font-size: 9pt; color: #444; }
+}

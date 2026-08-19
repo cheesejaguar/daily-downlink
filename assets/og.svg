@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+  <rect width="1200" height="1200" fill="#fdfcfa"/>
+  <rect x="0" y="285" width="1200" height="9" fill="#25327a"/>
+  <g fill="none" stroke="#25327a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(96,380) scale(2.7)">
+    <path d="M12 3 V13.4"/>
+    <path d="M7.6 9.6 L12 14.3 L16.4 9.6"/>
+    <path d="M5.5 19.5 H18.5"/>
+  </g>
+  <text x="96" y="600" font-family="Georgia" font-size="86" font-weight="bold" fill="#16181d">The Daily Down</text>
+  <text x="96" y="668" font-family="Georgia" font-size="34" fill="#565a62">A systems engineer&#8217;s daily read on AI.</text>
+  <text x="96" y="845" font-family="Helvetica" font-size="25" fill="#25327a">blog.aaronx.co &#183; Aaron Cohen</text>
+</svg>
