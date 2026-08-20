@@ -114,9 +114,11 @@ a:hover, a:focus-visible {
   transition-duration: var(--strike);
 }
 
-a[href^="http"] { color: var(--amber); }
-a[href^="http"]:hover,
-a[href^="http"]:focus-visible { color: var(--amber-bright); }
+/* "Leaves the record" is about destination, not URL form: an absolute link
+   back to this site is still internal, and the publisher writes those. */
+a[href^="http"]:not([href*="blog.aaronx.co"]) { color: var(--amber); }
+a[href^="http"]:not([href*="blog.aaronx.co"]):hover,
+a[href^="http"]:not([href*="blog.aaronx.co"]):focus-visible { color: var(--amber-bright); }
 
 :focus-visible {
   outline: 2px solid var(--amber);
@@ -463,7 +465,7 @@ a[href^="http"]:focus-visible { color: var(--amber-bright); }
 .site-foot p { margin: 0; }
 .site-foot .right { margin-left: auto; display: flex; gap: 1.25rem; }
 .site-foot a { color: var(--phos-dim); text-decoration: none; }
-.site-foot a[href^="http"] { color: var(--amber); }
+.site-foot a[href^="http"]:not([href*="blog.aaronx.co"]) { color: var(--amber); }
 .site-foot a:hover { color: var(--phos-hot); }
 .site-foot a[href^="http"]:hover { color: var(--amber-bright); }
 

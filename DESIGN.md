@@ -149,14 +149,16 @@ surface; a second phosphor (amber) is reserved for a single semantic job.
 | `phos` | `#9ccfb0` | Body text. The resting brightness of the record. |
 | `phos-bright` | `#d6f5e2` | Headings, titles, the lede, `<strong>` inside lists. |
 | `phos-dim` | `#6f9a81` | Stamps, field labels, summaries, footer. |
-| `amber` | `#e0a95c` | **Outbound references only** (`a[href^="http"]`). |
+| `amber` | `#e0a95c` | **Outbound references only** — `a[href^="http"]:not([href*="blog.aaronx.co"])`. |
 | `amber-bright` | `#f6cd93` | Outbound link excitation. |
 | `phos-hot` | `#eafff2` | Internal link excitation — the beam hitting harder. |
 | `rule` | `#1b2723` | Hairlines. Structural only. |
 | `ground-lit` | `#121e19` | The only non-ground surface: a log row under the cursor. |
 
-**Amber means "this leaves the record."** It is the second phosphor and it is
-scoped to `a[href^="http"]`, source attributions, the date stamp, and the
+**Amber means "this leaves the record."** That is about destination, not URL
+form: an absolute link back to this site is still internal and stays green,
+which matters because the daily publisher writes backlinks absolute. It is the
+second phosphor and it is scoped to off-site links, source attributions, the date stamp, and the
 wordmark's mark. Internal links stay green at body brightness and carry their
 underline as the affordance, exciting to `phos-hot` on hover; only outbound
 links are amber. Never use amber for emphasis — emphasis is `phos-bright` — and

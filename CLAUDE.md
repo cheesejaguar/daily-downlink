@@ -135,9 +135,11 @@ _Source: [domain.com](https://full-url-here)_
   Link text is the bare domain.
 - **Why it matters** must contain an actual argument. If it restates What
   happened in different words, the highlight has failed and belongs in The Rest.
-- Links colour themselves by destination: anything starting `http` renders amber
-  (an outbound reference), anything site-relative renders green. Always link
-  sources with the full `https://` URL so they read as outbound.
+- Links colour themselves by destination, not by URL form: links that leave the
+  site render amber, links to this site render green. Always cite sources with
+  the full `https://` URL. Linking an earlier edition is fine either way — an
+  absolute `https://blog.aaronx.co/...` backlink is still recognised as
+  internal and stays green.
 
 ### 3. The Rest
 
