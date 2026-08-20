@@ -1,0 +1,47 @@
+<p class="share-wrap">
+  <button class="share" type="button" hidden
+          data-url="{{ page.url | absolute_url }}"
+          data-title="{{ page.title | escape }}">Share this pass</button>
+  <span class="share-status" role="status" aria-live="polite"></span>
+</p>
+<script>
+/* Progressive enhancement: the button ships hidden and is only revealed when the
+   browser can actually do something with it. No JS, no button, nothing broken. */
+(function () {
+  var b = document.querySelector('.share');
+  if (!b) return;
+  var status = document.querySelector('.share-status');
+  var canShare = typeof navigator.share === 'function';
+  var canCopy = !!(navigator.clipboard && navigator.clipboard.writeText);
+  if (!canShare && !canCopy) return;
+
+  if (!canShare) b.textContent = 'Copy link';
+  b.hidden = false;
+
+  var timer;
+  function say(msg) {
+    status.textContent = msg;
+    clearTimeout(timer);
+    timer = setTimeout(function () { status.textContent = ''; }, 2600);
+  }
+  function copy(url) {
+    navigator.clipboard.writeText(url).then(
+      function () { say('Link copied'); },
+      function () { say('Could not copy'); }
+    );
+  }
+
+  b.addEventListener('click', function () {
+    var url = b.dataset.url, title = b.dataset.title;
+    if (canShare) {
+      navigator.share({ title: title, url: url }).catch(function (err) {
+        /* Dismissing the share sheet is a choice, not a failure. */
+        if (err && err.name === 'AbortError') return;
+        if (canCopy) copy(url);
+      });
+    } else {
+      copy(url);
+    }
+  });
+})();
+</script>

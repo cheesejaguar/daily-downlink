@@ -13,5 +13,17 @@
   <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
   <link rel="author" href="{{ '/about/' | relative_url }}">
   <link rel="alternate" type="text/plain" href="{{ '/llms.txt' | relative_url }}" title="Site guide for language models">
+  {%- comment -%}
+    jekyll-seo-tag emits og:image and twitter:card but not the dimensions or the
+    alt text. Several platforms need width/height to commit to the large card
+    rather than falling back to a thumbnail.
+  {%- endcomment -%}
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ page.image_alt | default: 'The Daily Downlink — a systems engineer’s daily read on AI. Two or three stories that matter, one clear take on each.' }}">
+  {%- comment -%} seo-tag already emits article:published_time; author it does not. {%- endcomment -%}
+  {%- if page.date %}
+  <meta property="article:author" content="{{ site.author }}">
+  {%- endif %}
   {%- include structured-data.html -%}
 </head>

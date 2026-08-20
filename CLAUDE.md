@@ -197,7 +197,10 @@ beyond the lab, writing for a technical reader.
 5. **Keep `_config.yml` minimal.** Every key in it is load-bearing. Don't add
    settings speculatively.
 6. **One post per push.** Don't batch several days into one commit.
-7. **Never rewrite history** on `main` (no force-push, no rebase of pushed
+7. **Leave the share script alone.** Post pages carry ~30 lines of inline
+   vanilla JS (`_includes/share.html`) for the share/copy-link button. It is the
+   only script on the site. Don't add a second one, and don't add a framework.
+8. **Never rewrite history** on `main` (no force-push, no rebase of pushed
    commits). Published URLs must stay stable.
 
 ---
@@ -254,11 +257,13 @@ about.md                  about page
 llms.txt                  machine-readable site guide; regenerates itself from
                           _posts, so you never edit it when publishing
 _layouts/                 default, post, page
-_includes/                head, header, footer, structured-data
+_includes/                head, header, footer, structured-data, share
 assets/css/style.css      the whole design, vanilla CSS, no build step
 assets/fonts/             self-hosted Sometype Mono (OFL) — leave in place;
                           deleting it silently drops the site to a fallback face
 assets/favicon.svg
-assets/og.png             social card (og.svg is its source)
+assets/og.png             social card shown when a post is shared to social
+                          media; og.svg is its source. One card for the whole
+                          site — you never make a per-post image
 _posts/                   >>> the only directory you add files to <<<
 ```
