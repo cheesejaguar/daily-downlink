@@ -271,6 +271,14 @@ refers to it.
 - **Source line** — `.body p > em:only-child` renders as a de-italicised
   `0.8125rem` `phos-dim` block, pulled up `0.75rem` to sit with its paragraph.
 - **Stamp** — dim, tabular, with its date in amber.
+- **Share control** — a real `<button>` in the record footer, carrying the
+  record's link language: no background, no border, no radius, underlined,
+  `phos` exciting to `phos-hot`. It ships `hidden` and is revealed by script
+  only when the browser can act on it, so a no-JS reader sees nothing broken.
+  Where `navigator.share` exists it opens the native sheet; otherwise it
+  relabels itself "Copy link" and writes the canonical URL to the clipboard,
+  confirming in an `aria-live="polite"` status set in `amber`. Dismissing the
+  share sheet is a choice, not an error, and is never reported as one.
 - **Focus** — 2px `amber` outline at `3px` offset. Never removed.
 
 ## Do's and Don'ts
@@ -289,6 +297,14 @@ refers to it.
 - Add a second animation.
 - Add a rule that isn't separating the status bar, log entries, or the record
   footer.
+
+## Script
+
+The site carries exactly one script: ~30 lines of vanilla JS inlined on post
+pages only, wiring the share control. There is no framework, no bundler, no
+build step, and no third-party script. Every other surface is static HTML and
+CSS, and any new behaviour must clear the same bar: progressive enhancement,
+inline, no dependency, and nothing that breaks with JS off.
 
 ## Out of system
 

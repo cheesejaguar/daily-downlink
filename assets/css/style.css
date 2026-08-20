@@ -409,6 +409,38 @@ a[href^="http"]:focus-visible { color: var(--amber-bright); }
 }
 .record-foot p { margin: 0; }
 
+/* The share control is an action, so it is a real button — but it carries the
+   record's link language, not a box. No chrome; this world has no containers. */
+.share-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  min-height: 1.7em;      /* holds its line whether or not JS reveals the button */
+  margin: 0 0 0.35rem;
+}
+
+.share {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: var(--phos);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+  transition: color var(--decay) var(--ease);
+}
+.share:hover,
+.share:focus-visible { color: var(--phos-hot); transition-duration: var(--strike); }
+.share[hidden] { display: none; }
+
+.share-status {
+  font-size: 0.75rem;
+  color: var(--amber);
+}
+
 /* ---------- empty ---------- */
 
 .empty { margin-bottom: 5rem; }

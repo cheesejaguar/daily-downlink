@@ -1,15 +1,37 @@
 <!-- Source for assets/og.png (1200x630). Rendered by inlining
-     assets/fonts/sometype-mono-latin.woff2 as a base64 @font-face, then
-     cropping the centre band. Authored at 1200x1200 so the renderer does not
-     rescale the artwork. -->
+     assets/fonts/sometype-mono-latin.woff2 as a base64 @font-face into the
+     <style> block below, rasterising at 1200x1200, then cropping the centre
+     630 rows. Authored square so the renderer never rescales the artwork.
+     The composition mirrors the site itself: status bar, rule, record column,
+     footer band. -->
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+  <defs><style type="text/css">
+        .wm   { font-family:"Sometype Mono"; font-weight:700; fill:#d6f5e2; }
+    .dim  { font-family:"Sometype Mono"; font-weight:400; fill:#6f9a81; }
+    .head { font-family:"Sometype Mono"; font-weight:700; fill:#d6f5e2; letter-spacing:-1.2px; }
+    .sub  { font-family:"Sometype Mono"; font-weight:400; fill:#9ccfb0; }
+    .amb  { font-family:"Sometype Mono"; font-weight:400; fill:#e0a95c; }
+  </style></defs>
+
   <rect width="1200" height="1200" fill="#080c0a"/>
-  <rect x="0" y="285" width="1200" height="2" fill="#1b2723"/>
-  <g fill="none" stroke="#e0a95c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(96,372) scale(2.4)">
+  <rect x="0" y="285" width="1200" height="3" fill="#e0a95c"/>
+
+  <!-- status bar, exactly as the site wears it -->
+  <g fill="none" stroke="#e0a95c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+     transform="translate(96,318) scale(1.5)">
     <path d="M12 3 V13.4"/><path d="M7.6 9.6 L12 14.3 L16.4 9.6"/><path d="M5.5 19.5 H18.5"/>
   </g>
-  <text x="96" y="592" font-family="Sometype Mono" font-size="66" font-weight="700" fill="#d6f5e2">The Daily Downlink</text>
-  <text x="96" y="656" font-family="Sometype Mono" font-size="27" fill="#9ccfb0">A systems engineer&#8217;s daily read on AI.</text>
-  <text x="96" y="850" font-family="Sometype Mono" font-size="22" fill="#6f9a81">blog.aaronx.co</text>
-  <text x="330" y="850" font-family="Sometype Mono" font-size="22" fill="#e0a95c">Aaron Cohen</text>
+  <text class="wm"  x="150"  y="347" font-size="27">The Daily Downlink</text>
+  <text class="dim" x="1104" y="347" font-size="22" text-anchor="end">blog.aaronx.co</text>
+  <rect x="96" y="392" width="1008" height="1" fill="#1b2723"/>
+
+  <!-- the record column -->
+  <text class="head" x="96" y="524" font-size="60">A systems engineer&#8217;s</text>
+  <text class="head" x="96" y="596" font-size="60">daily read on AI.</text>
+  <text class="sub"  x="96" y="668" font-size="26">Two or three stories that matter,</text>
+  <text class="sub"  x="96" y="706" font-size="26">one clear take on each.</text>
+
+  <rect x="96" y="812" width="1008" height="1" fill="#1b2723"/>
+  <text class="amb"  x="96"   y="866" font-size="24">Aaron Cohen</text>
+  <text class="dim"  x="1104" y="866" font-size="22" text-anchor="end">Daily</text>
 </svg>
