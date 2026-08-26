@@ -51,3 +51,13 @@ production — Rubin ships now, Jalapeño ramps through 2027. The scoring to do
 next: what the second generation (already far along, taping out in the coming
 months) does to GPT token pricing once OpenAI's own silicon starts carrying
 frontier flagship inference.
+
+---
+
+## Take amended — 2026-08-26
+
+Follow-up: [NVIDIA answers Jalapeño: Vera Rubin posts up to 30x more work per watt on agentic loads](https://blog.aaronx.co/2026/08/26/nvidia-answers-jalapeno-vera-rubin-30x-work-per-watt/).
+
+The headline call stands on the reported numbers: on the day, per Bloomberg and SemiAnalysis's in-lab run, Jalapeño beat GB300 on work-per-watt and response speed. What I amend is a secondary claim: my line that Jalapeño is "ahead on output tokens per MW vs Vera Rubin" and head-to-head on perf-per-dollar was always a small, unverified extrapolation, and it is now contested by NVIDIA-measured data — Vera Rubin NVL72 posting up to 30x GB300's work per megawatt and 35x lower token cost on agentic workloads (SemiAnalysis AgentX), announced the day after OpenAI's claim.
+
+Both sets of numbers are self-reported by their own parties, and neither is yet arbitrated by an independent head-to-head. The corrected statement: Jalapeño's win is real against the previous generation it was measured against; the crown against what ships now is contested week to week, and the score that settles it is who delivers frontier token economics at production scale first.
