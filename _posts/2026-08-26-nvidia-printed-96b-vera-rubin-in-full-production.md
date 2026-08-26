@@ -1,0 +1,21 @@
+---
+title: "NVIDIA printed $96 billion, raised the bar to $108 billion, and put Vera Rubin in full production"
+date: 2026-08-26 14:20:00 -0700
+excerpt: "The bellwether beat the Street by ~4.5% on a record $96.2 billion quarter with data center up 117%, guided Q3 to $108 billion — above consensus — and confirmed Vera Rubin is ramping into full production across the big clouds, the first real scorecard entry in this week's custom-silicon fight."
+categories: [commentary]
+draft: false
+---
+
+This morning's post flagged NVIDIA's [after-close print](https://blog.aaronx.co/2026/08/26/nvidia-answers-jalapeno-vera-rubin-30x-work-per-watt/) as the scorecard for the chip fight. It just landed, and it fills the column in faster than expected. NVIDIA reported fiscal Q2 revenue of $96.2 billion, up 18% sequentially and 106% year over year against a Street consensus near $92 billion — a beat of roughly $4 billion. Data center did $89.0 billion, up 117%, essentially the whole company. And the guide went up, not sideways: Q3 revenue guided to $108 billion plus or minus 2% and excluding China compute, against a consensus that was sitting in the low-$103s. Gross margin held at 75% on GAAP and non-GAAP, quarterly dividends now run at $0.25 with $26 billion returned to shareholders in the quarter. The custom-silicon lane — the [Jalapeño measured win](https://blog.aaronx.co/2026/08/25/openai-jalapeno-beats-blackwell-on-tokens-per-watt/) and NVIDIA's 30x [Vera Rubin figure](https://blog.aaronx.co/2026/08/26/nvidia-answers-jalapeno-vera-rubin-30x-work-per-watt/) — just got its first hard-arbiter data point, and it is not ambiguous.
+
+## Vera Rubin is not a slide anymore — it is shipping at full production
+
+**What happened.** The release states the Vera Rubin platform "is ramping into full production with racks running at partners including CoreWeave, Google Cloud, Microsoft Azure, Oracle Cloud Infrastructure and Nebius." NVIDIA also revealed Spectrum-6 switch systems — with both pluggable and co-packaged optics — are arriving in gigascale factories, and repeated the "compute is revenue" framing: "AI has reached its inflection point. It's doing useful work. Its tokens are productive and profitable. Now, compute is revenue." Backed by numbers: a record $96.2B quarter, a $108B guide, non-GAAP EPS of $2.22, and a $26B capital return in the quarter with the dividend raised to $0.25.
+
+**Why it matters.** Up to now the entire Vera-vs-Jalapeño argument has run on vendor-selected benchmark slices: OpenAI opened doors for one in-lab run, NVIDIA measured its own 30x on its own workload. This print is the first time the contest gets an audited economic answer, and the answer is that NVIDIA is converting its efficiency thesis into rack shipments at the five names an operator would actually rent from — now. For a systems engineer that changes the decision surface: the "30x work per megawatt" number stops being a marketing claim and starts being the economics baked into the next instance you provision and the next capex you justify. The custom-silicon window — the argument that a purpose-built inference part undercuts Blackwell on price-per-token — now has to price against a next-generation platform that is already in full production at the incumbents' full-stack margin, not against a roadmap. And a $108B guide that excludes China says the demand wall this column keeps prodding did not show up this quarter; capacity is the constraint, not customers.
+
+## What I'm watching
+
+Whether the "full production" claim shows up as Vera Rubin revenue in the Q3 data-center split, and whether Huang quantifies attach of Vera systems into existing hyperscaler fleets on the call (2 p.m. PT) — that is the remaining gap between the 30x slide and the $108B number. The arbitrated, independent head-to-head is still the number that would settle the fight outright; NVIDIA just made it a lot harder for anyone to wait for it.
+
+_Source: [nvidianews.nvidia.com](https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-second-quarter-fiscal-2027), [247wallst.com](https://247wallst.com/cards/nvidia-q2-2027-earnings-nvda-01m0zw3hstde6rb2mt0kwj6d2c), [wsj.com](https://www.wsj.com/livecoverage/nvidia-earnings-stock-market-today-08-26-2026)_
