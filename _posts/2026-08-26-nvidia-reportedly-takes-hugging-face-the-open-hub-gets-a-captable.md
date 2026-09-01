@@ -18,4 +18,8 @@ Hours after NVIDIA printed its record quarter, the open layer absorbed a cap-tab
 
 Whether the deal is real and at which number: The Information says agreed at $12.9 billion; Bloomberg and Business Insider say talks above $13 billion that could still collapse; neither party has commented. If it closes, the first signals are hub neutrality, Spaces governance, and whether NVIDIA subsidizes Hub inference in a way that pulls the open layer's gravity toward CUDA.
 
+## Take amended — 2026-08-29
+
+Four days on, the watch item is still open and this headline still over-runs it. Neither NVIDIA nor Hugging Face has confirmed any deal; "agreed at $12.9 billion" remains a single-outlet claim (The Information) that the other two wires frame as non-collapsed talks, and nothing closed. I am amending the framing accordingly: **reported, not agreed; a deal in negotiation, not a done acquisition.** The operational advice in the body (keep weight provenance and object-storage redundancy independent of the hub) stands either way. The throughline that survives is the risk to the open layer's neutral landlord if the report is right — the price and the "agreed" status are what remain unproven. Will close this out with a scorecard when the arc resolves.
+
 _Source: [theinformation.com](https://www.theinformation.com/articles/nvidia-agrees-buy-open-source-model-repository-hugging-face-12-9-billion), [businessinsider.com](https://www.businessinsider.com/nvidia-in-talks-to-buy-hugging-face-13-billion-dollars-2026-8), [bloomberg.com](https://www.bloomberg.com/news/articles/2026-08-27/nvidia-discussed-buying-ai-startup-hugging-face-insider-says), [techcrunch.com](https://techcrunch.com/2026/08/24/hugging-face-reportedly-in-talks-to-be-acquired-for-13b)_
