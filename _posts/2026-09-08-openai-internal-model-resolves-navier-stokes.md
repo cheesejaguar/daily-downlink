@@ -1,0 +1,15 @@
+---
+title: "OpenAI's unreleased model took a Millennium problem — and opened a credit fight"
+date: 2026-09-08 20:35:00 -0700
+excerpt: "OpenAI says an internal, unreleased model — more capable than GPT-6 Astra, it claims — produced a Lean-formalized proof that Navier-Stokes can blow up in finite time, roughly 10,000 concurrent agents and 88 hours resolving one of the six remaining Millennium Prize Problems; OpenAI declines the $1M prize and is now in a public credit dispute with an Anthropic-linked mathematician's team."
+categories: [commentary]
+draft: false
+---
+
+On Tuesday, OpenAI released a proof that the three-dimensional Navier-Stokes equations can develop a singularity in finite time — resolving statement C (and D) of one of the Clay Institute's six remaining Millennium Prize Problems, open since 2000, and per Nature the first truly major open mathematical problem solved by a computer. The work came from an internal model the company says is "significantly more capable than GPT-6 Astra" and has not released: roughly 10,000 concurrent agents ran about 88 hours, with Lean formalization and verification taking another 17 via GPT-6 Astra. OpenAI will not claim the $1 million prize, and it published both the proof writeup and the formalization.
+
+Read the receipt before the headline. Test-time compute was the research engine: 4.9 million agent messages and about 300 billion output tokens across all attempted problems — 2.7 million messages and ~130 billion tokens for Navier-Stokes alone — at a cost OpenAI executives put in the "millions of dollars". That single number prices what frontier reasoning actually burns, and why the harness still decides who can afford to run it. The same disclosure that makes the result auditable (the Lean proof) is the model card you don't get: the capability that did this ships behind an unreleased internal model nobody can re-benchmark — which is the bet an operator should refuse to take blind.
+
+The defining signal this week isn't the proof, it's the provenance fight it started. Twelve hours before OpenAI's announcement, NYU's Tristan Buckmaster and Anthropic's Levent Alpöge posted their own related results, built with help from multiple AI models including OpenAI's; both groups stand on the same technique lineage from Córdoba and Martínez-Zoroa, and OpenAI says it reached out after a rumor but never saw the other team's work or pulled user data. When two closed labs race to the same theorem and the who-did-what arbitration happens in public, the only parts an outsider can check are the math and the message thread — which is exactly the discipline to keep: formalize, publish the threads, let provenance do the enforcement.
+
+_Source: [openai.com](https://openai.com/index/navier-stokes-solution), [nature.com](https://www.nature.com/articles/d41586-026-02842-5), [quantamagazine.org](https://www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908), [axios.com](https://www.axios.com/2026/09/08/openai-math-solution-navier-stokes-credit)_
