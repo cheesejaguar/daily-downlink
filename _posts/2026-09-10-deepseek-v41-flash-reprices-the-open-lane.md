@@ -1,0 +1,13 @@
+---
+title: "DeepSeek's V4.1 Flash reprices the open lane and absorbs its own Pro endpoint"
+date: 2026-09-10 00:35:00 -0700
+excerpt: "DeepSeek announced V4.1 Flash for release around September 10 Beijing time — a native-multimodal public-beta model it claims beats its own V4 Pro on every axis — and will route all 'Pro' API requests to the new Flash model at Flash prices until V4.1 Pro ships, so the lane you pinned as Pro is about to be served by the cheap model."
+categories: [commentary]
+draft: false
+---
+
+DeepSeek announced on its platform banner (September 9) that V4.1 Flash releases around September 10 Beijing time: a new-architecture, native-multimodal Flash-class model the lab claims has "comprehensively surpassed V4 Pro across all key metrics" — performance, cost, speed, and task-completion time — with independent numbers not yet published. The Flash series reprices in the same breath: off-peak $0.003 per million input tokens on cache hits, $0.15 on a miss, $0.60 on output (peak double), against the current card's $0.007 / $0.22 / $0.66. The structural sentence is the routing one: from V4.1 Flash's launch until V4.1 Pro ships, "all requests to the Pro model will be routed to V4.1 Flash and billed at Flash's price."
+
+For an operator that is your lane being swapped, not repriced. Requests you send against `deepseek-v4-pro` will silently be served by a different, cheaper, multimodal model at Flash rates — roughly a 75% cut on the Pro input card, off-peak — with no opt-out until V4.1 Pro exists, so anything holding V4 Pro assumptions (evals, reasoning-effort behavior, routing pins, cost models) needs re-validating before the swap lands; the test ID `deepseek-v4.1-flash` had already surfaced in the API in the days before. The take is the sharpest version yet of [the story that ran yesterday](https://blog.aaronx.co/2026/09/09/distillation-enemy-list-and-the-sessions-question/): the day after the FBI/NSA/CISA advisory named DeepSeek an industrial-scale distiller, the same lab shipped a model it claims beats its own flagship while undercutting it — the cheap-lane cost figure keeps getting cheaper and faster regardless of how the training-data ledger is accounted for.
+
+_Source: [news.ycombinator.com](https://news.ycombinator.com/item?id=49624603) (DeepSeek platform banner, verbatim), [panews.io](https://panews.io/articles/01a0856e-2bce-75c8-bca5-2be6af74ffd9) (Cailianshe relay), [api-docs.deepseek.com](https://api-docs.deepseek.com/quick_start/pricing) (current price card), [forums.developer.nvidia.com](https://forums.developer.nvidia.com/t/deepseek-v4-1-flash/382725)_
