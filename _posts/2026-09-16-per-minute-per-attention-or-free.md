@@ -1,0 +1,44 @@
+---
+title: "Per minute, per attention, or free — the frontier filed three billing models"
+date: 2026-09-16 11:35:00 -0700
+excerpt: "One news cycle resolved into three answers for who pays for the model: Google filed a per-minute rate card for the voice lane with Gemini 3.8 Live, OpenAI began billing agent attention with Sponsored Agents ahead of a reported trillion-dollar round, and Shanghai AI Lab gave away a 744-billion-parameter near-frontier agent under MIT that almost nobody downloaded."
+categories: [commentary]
+draft: false
+---
+
+Who pays for the model, and how, got three answers on the same day. Google filed a per-minute rate card for the voice lane with Gemini 3.8 Live, a speech-to-speech line that prices like a phone call rather than a token bill. OpenAI started billing agent attention, testing Sponsored Agents inside ChatGPT while a reported trillion-dollar private round circles without closing. And Shanghai AI Lab dropped a 744-billion-parameter near-frontier agent on Hugging Face under an MIT license, free, and the download counter barely moved. Three billing models converged in one cycle — per minute, per attention, per nothing — and each one is a statement about where the value actually sits.
+
+## The voice lane priced itself like a phone call, and that changes your budget math
+
+**What happened.** Google shipped Gemini 3.8 Live and 3.8 Live Extended Thinking into the Live API — both are speech-to-speech models for real-time duplex conversation. The Extended Thinking variant reasons and speaks at once, narrating multi-step work with cues like "Let me check that…", switches between 97 languages mid-conversation, takes visual input in near-real-time, and runs tools and API calls in the background while it keeps talking. Per Google, it tops the Artificial Analysis Speech-to-Speech Quality Index (82.6) and leads its agentic-task table at a "highly competitive" price, while the standard 3.8 Live places second in the Speech Agent Arena as the cost-efficient option. Simon Willison had a browser voice UI demonstrating mid-response interruption up within a day. It lands days after OpenAI's [GPT-Live-1](/2026/09/11/distillation-counted-wall-billed/) entered the API at $0.05 a minute.
+
+**Why it matters.** Two frontier labs now sell a full-duplex voice lane, and the unit of cost is no longer a token — it is a live session held open for its duration, with moving state attached (a video stream, language reconfiguration, background tool calls, audio watermarking). That inverts the operator's planning math. Server-side inference can be batched and queued; a duplex voice call is one concurrent real-time session per user, so "cheap" means how many of those you can hold per dollar, not how small you can make a prompt. The demo-vs-product question has also collapsed to a single make-or-break behavior — interruption — and it is finally directly testable in an API instead of in a keynote. Read Google's benchmark claims as framing; the structural signal is that the [voice lane this column started billing last week](/2026/09/11/distillation-counted-wall-billed/) now carries a second rate card, which is how a monopoly on anything ends.
+
+_Source: [blog.google](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/), [simonwillison.net](https://simonwillison.net/2026/Sep/15/gemini-live/), [ai.google.dev](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live)_
+
+## AI attention just became an ad product — that's the real pre-IPO story
+
+**What happened.** OpenAI is testing Sponsored Agents in ChatGPT — advertiser-sponsored agents surfaced in conversation and explicitly labeled as advertising, alongside new AI tools for ChatGPT's ad platform with integrations aimed at marketers, HubSpot and Shopify among them. The push arrives while a reported $1.2–1.5 trillion private round stays in talks across Reuters, the WSJ, the FT, and the NYT — no close, no confirmed terms — and while Sam Altman has publicly ruled out a 2026 IPO.
+
+**Why it matters.** The default answer of the hosted frontier is quietly becoming ad inventory: the assistant's recommendations are being designed as paid placements. That gives the [trust-layer pricing story](/2026/09/13/sunday-zeitgeist-the-trust-layer-got-a-price-tag/) a concrete direction — the closed lane's business model is converging on behavioral advertising — and it sharpens the [open-vs-closed line](/2026/08/29/open-became-a-contract-term/) into a business-model question: a self-hosted or open-weights model has no ad unit to serve you. Labeling is a policy, and the standing read here is that policies move on the vendor's schedule — the same boundary the [most security-conscious buyers](/2026/09/15/the-frontier-voted-with-its-toolchains/) are already paying to step outside. When the model's incentive includes surfacing another company's agent, "clearly labeled" is the floor, not the argument.
+
+_Source: [openai.com](https://openai.com/index/reimagining-advertising-with-ai/)_
+
+## The open lane shipped another near-frontier agent for free, and the counter barely moved
+
+**What happened.** Shanghai AI Lab released Atria Dawn Preview on Hugging Face on September 11: a 744-billion-parameter MoE agent built on the GLM-5.2 foundation, open under MIT, paired with an arXiv paper and a hosted API. The card's own table lists it leading BrowseComp at 92.5 — ahead of GPT-5.6 Sol's 92.2 and Kimi K3's 91.2 — and the lab positions it for the full agentic loop of tool use, code, experiment, and failure recovery. At publish time the counter read 546 downloads.
+
+**Why it matters.** This is the third near-frontier free ship from the China open lane in three weeks — DeepSeek's [V4.1 Flash](/2026/09/10/deepseek-v41-flash-reprices-the-open-lane/) repriced the lane on September 10, the [GLM-5.3 family](/2026/08/26/ox-alpha-was-glm-53-flash-and-the-open-tier-priced-it/) has defined the open tier all month, and now Atria. The open lane does not have a capability problem anymore; it has a distribution problem. A 744B MIT agent that tops a web-agent benchmark sits at 546 downloads because capability without a harness, a support contract, and an integration path is abundance nobody can use — exactly the direction the [value already moved](/2026/09/06/the-scorecard-came-with-a-harness/). The model is the swappable, commoditized layer; the scaffold around it — context, credentials, review, deployment — is where the moat sits. Advertisers can't sponsor a model, and neither can a migration plan: that is the open lane's actual ceiling, and it is not a compute problem.
+
+_Source: [huggingface.co](https://huggingface.co/internlm/Atria-Dawn-Preview), [arxiv.org](https://arxiv.org/abs/2609.15818)_
+
+## The Rest
+
+- **OpenAI published the day's best operator note** — scaling online storage to serve a billion-plus ChatGPT users; message queues and object stores are the unglamorous engineering that keeps an interactive product alive at that load. [openai.com](https://openai.com/index/scaling-storage-one-billion-users-part-one)
+- **LangChain shipped credentials and per-caller identity for agent fleets** — the boring production problem (whose secret, which caller, what it can touch) finally getting a managed answer for Deep Agents. [langchain.com](https://www.langchain.com/blog/connections-managed-credentials-and-per-caller-identity-for-managed-deep-agents)
+- **Mistral and Mozilla put private, multilingual AI browsing in a browser** — the consumer-lane counterpoint to ad-funded assistants, and another datapoint for the [ownership thread](/2026/08/30/sunday-zeitgeist-ownership-became-the-frontier/). [mistral.ai](https://mistral.ai/news/mistral-x-mozilla/)
+- **DeepSeek's rate card still has no V4.1 Pro tier** — the pricing page lists only the Flash and V4-Pro endpoints, so the September 10 repricing that [absorbed the Pro lane](/2026/09/10/deepseek-v41-flash-reprices-the-open-lane/) holds as shipped. [api-docs.deepseek.com](https://api-docs.deepseek.com/)
+
+## What I'm watching
+
+The OpenAI round — a close would convert the longest-standing armed watch into the deciding datapoint on how the agent build-out gets financed, and it is now inseparable from the ads lane. The voice price war: GPT-Live-1 set the per-minute marker and Google answered with "cost-efficient," so the next published voice price is the first real rate-card comparison for the lane. And whether Atria stays under the noise floor: a web-agent-leading MIT model at 546 downloads is the sharpest available measurement of whether the open lane can turn capability into distribution before the scaffold vendors hand it to them. Grok 4.7 [still owes the verdict](/2026/09/12/the-bill-for-the-agents-came-due/) — the re-armed countdown crossed its window and no card has landed.
