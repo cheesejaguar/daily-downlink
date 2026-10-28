@@ -1,0 +1,35 @@
+name: Runner pool Jekyll checks
+on:
+  push: {}
+  pull_request: {}
+  workflow_dispatch: {}
+permissions:
+  contents: read
+concurrency:
+  group: runner-pool-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: >-
+      ${{
+        (github.event_name == 'pull_request' &&
+         (github.event.pull_request.head.repo.full_name != github.repository ||
+          github.event.pull_request.user.login == 'dependabot[bot]')) &&
+        'ubuntu-latest' ||
+        fromJSON(vars.RUNNER_FLEET_LABELS || '["ubuntu-latest"]')
+      }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install Ruby runtime libraries
+        if: runner.environment == 'self-hosted'
+        run: |-
+          sudo apt-get update
+          sudo apt-get install -y libyaml-0-2 libgmp10 libreadline8 libffi8 zlib1g
+      - uses: ruby/setup-ruby@7f797815d8adceb1c412e7abefdd1ab4abc47a5f
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+      - run: bundle exec jekyll build --trace
