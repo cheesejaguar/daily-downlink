@@ -1,0 +1,17 @@
+---
+title: "Mistral's trillion-parameter open model lands below the closed mid-tier"
+date: 2026-10-29 08:25:00 -0700
+excerpt: "Mistral released the full weights of Mistral Large 4 — 1.05T parameters, 52B active, 1M context, 1.06 TB ungated on Hugging Face — at $0.70/$2.10 per million tokens, below GPT-6.1 Terra's $1/$5, with a coding claim anyone can now test."
+categories: [commentary]
+draft: false
+---
+
+Mistral released the weights of Mistral Large 4 today — the model it calls Le Chonk — a 1.05-trillion-parameter multimodal Mixture-of-Experts with 52 billion active parameters and a 1M-token context window. The FP8 checkpoint is ungated on Hugging Face at about 1.06 TB across 54 shards, under a modified-MIT licence that permits commercial use but requires a separate deal to run it as a model-as-a-service. Mistral's API price is $0.70 per million input tokens, $0.07 cached, $2.10 output — roughly half the $1.36/$4.18 per million tokens OpenRouter still lists for the same model ID, and below GPT-6.1 Terra's $1/$5. The company reports 41% on Terminal-Bench 4.0, a point over GLM-5.3, and 48% on the Artificial Analysis Coding Agent Index while using 47% fewer tokens per task. Its own card concedes the Chinese open models still lead the aggregate index, where Le Chonk scores 26 — the highest among Western open weights.
+
+## The open-weight floor is now a Western number
+
+**What happened.** Mistral released the weights of Mistral Large 4 (Le Chonk): 1.05T total parameters, 52B active, 128 routed experts with four active per token plus one shared, a 1M-token context, text and image input, 160+ languages, trained from scratch on 3,800 NVIDIA Grace Blackwell GPUs in Mistral's European datacenters. The FP8 repo `mistralai/Mistral-Large-4-1T-A52B` is ungated at 1.06 TB; an NVFP4 quant is also ungated. The licence is a modified MIT — commercial use allowed, model-as-a-service needs a separate commercial licence. The API rate card is $0.70/$2.10 per million tokens, cached input $0.07. Mistral reports Terminal-Bench 4.0 at 41% (GLM-5.3 40%), CyberGym-E2E at 79%, FrontierCode 2.0 at 19.7%, the Coding Agent Index at 48% tied with GLM-5.3 on 47% fewer tokens per task, and Intelligence Index v5 at 26.
+
+**Why it matters.** For an operator the first number is the footprint, not the benchmark: the FP8 card's own vLLM recipe is tensor-parallel 8 — an eight-GPU node before it serves a token — and the NVFP4 quant brings that down to four Blackwell GPUs. That is a datacenter model, not a workstation one, so the choice is $0.70/$2.10 on the API or a capital line and a serving team for the weights. What breaks is the assumption that open-weight cost leadership is Chinese: a European lab has put a frontier-class agentic-coding model on the shelf below the closed mid-tier, with training provenance as the differentiator. The claim is now falsifiable, and Mistral's own card concedes the aggregate crown is still Chinese; the coding index is where it says it is tied. If the coding numbers reproduce outside Mistral's harness, the open-weight floor for agent work is a Western number and the closed labs have a price problem in the middle of their range; if they do not, Le Chonk is a sovereignty story with a good nickname.
+
+_Source: [mistral.ai](https://mistral.ai/news/mistral-large-4-oss/) · [huggingface.co](https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B) · [thenextweb.com](https://thenextweb.com/news/mistral-large-4-open-weights-release)_
