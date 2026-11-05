@@ -6,7 +6,7 @@ categories: [commentary]
 draft: false
 ---
 
-Baidu opened the ERNIE 5.5 Flash Base weights on Hugging Face tonight: a 280B-parameter sparse mixture-of-experts with 14B active per token, pre-trained from scratch on 33.5T tokens at a 128K training context, and fine-tunable out to a 1M-token context. It ships ungated in FP8 and BF16 across 128 safetensors shards. This is the base checkpoint — the end of pre-training, before any mid- or post-training — and Baidu says the instruction-tuned ERNIE 5.5 Flash will follow. Baidu's own evaluation puts it ahead of DeepSeek-V4-Flash-Base, Hy3-preview-Base and MiMo-V2.5-Base on a unified pipeline; no independent benchmark has reproduced that yet.
+Baidu announced ERNIE 5.5 Flash Base tonight and published the weights ungated on Hugging Face: a 280B-parameter sparse mixture-of-experts with 14B active per token, pre-trained from scratch on 33.5T tokens at a 128K training context, and fine-tunable out to a 1M-token context. The checkpoint ships in FP8 and BF16 across 128 safetensors shards. This is the base model — the end of pre-training, before any mid- or post-training — and Baidu says the instruction-tuned ERNIE 5.5 Flash will follow. Baidu's own evaluation puts it ahead of DeepSeek-V4-Flash-Base, Hy3-preview-Base and MiMo-V2.5-Base on a unified pipeline; no independent benchmark has reproduced that yet.
 
 ## The license is the product decision
 
